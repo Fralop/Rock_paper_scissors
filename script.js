@@ -5,13 +5,13 @@ function getComputerChoice () {
     // Create a conditional to assign 1 to Rock, 2 to paper or 3 to scissors
     switch (computerChoiceNumber) {
         case 1:
-            computerChoice = "Rock";
+            computerChoice = "rock";
             break;
         case 2:
-            computerChoice = "Paper";
+            computerChoice = "paper";
             break;
         case 3:
-            computerChoice = "Scissors";
+            computerChoice = "scissors";
             break;
     }
     // Return the selection
@@ -22,9 +22,9 @@ function getComputerChoice () {
 console.log(getComputerChoice());
 // Create a function to capture user input
 function getHumanChoice () {
-    let humanText = prompt ("What is your choice? Rock, Paper or Scissors? Type only one !", "Make your choice here!")
+    let humanText = prompt ("What is your choice? Rock, Paper or Scissors? Type only one !", "Make your choice here!").toLowerCase ();
     // Accept only Rock, Paper or Scissor as an input
-    if (humanText.toLowerCase () !== "rock" && humanText.toLowerCase () !== "paper" && humanText.toLowerCase () !== "scissors") {
+    if (humanText !== "rock" && humanText !== "paper" && humanText !== "scissors") {
         alert ("You can only enter Rock, Paper or Scissors. Please try again!");
         humanText = undefined;
     }
@@ -36,3 +36,4 @@ console.log(getHumanChoice ());
 // Players score declaration
 let humanScore = 0;
 let computerScore = 0;
+//Create Play Round function
