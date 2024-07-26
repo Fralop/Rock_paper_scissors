@@ -106,12 +106,14 @@ function playGame(n) {
         const computerSelection = getComputerChoice ();
         playRound(humanSelection, computerSelection);
     }
+    // Adds the conditional to place an alert and say who won
     if (humanScore > computerScore) {
         alert (`Human has won ${humanScore} vs ${computerScore}! Yay! :)`);
     } else if (humanScore < computerScore) {
-        alert (`Computer has won ${computerScore} vs ${humanScore}! Booo! :()`);
+        alert (`Computer has won ${computerScore} vs ${humanScore}! Booo! :(`);
     } else {
         alert (`It's a tie at ${computerScore}. Not bad, human !`);
     }
 }
+// Call the function to plan the game n number of times.
 playGame(5);
