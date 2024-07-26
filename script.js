@@ -17,9 +17,6 @@ function getComputerChoice () {
     // Return the selection
     return computerChoice;
 }
-// Call the function
-// Test in the console
-console.log(getComputerChoice());
 // Create a function to capture user input
 function getHumanChoice () {
     let humanText = prompt ("What is your choice? Rock, Paper or Scissors? Type only one !", "Make your choice here!").toLowerCase ();
@@ -31,9 +28,79 @@ function getHumanChoice () {
     // Return the selections
     return humanText;
 }
-// Call the function in the console
-console.log(getHumanChoice ());
 // Players score declaration
 let humanScore = 0;
 let computerScore = 0;
 //Create Play Round function
+function playRound (humanChoice, computerChoice) {
+    // Game logic with linked switches
+    let result = "";
+    switch (humanChoice) {
+        case "rock":
+            switch (computerChoice) {
+                case "rock":
+                    result = "That's a tie!"
+                    humanScore = 0;
+                    computerScore = 0; 
+                    break;
+                case "paper":
+                    result = "Computer wins! :("
+                    humanScore = 0;
+                    computerScore += 1; 
+                    break;
+                case "scissors":
+                    result = "Human wins! Yay! :)"
+                    humanScore += 1;
+                    computerScore = 0; 
+                    break;
+            }
+            break;
+        case "paper":
+            switch (computerChoice) {
+                case "paper":
+                    result = "That's a tie!"
+                    humanScore = 0;
+                    computerScore = 0; 
+                    break;
+                case "scissors":
+                    result = "Computer wins! :("
+                    humanScore = 0;
+                    computerScore += 1; 
+                    break;
+                case "rock":
+                    result = "Human wins! Yay! :)"
+                    humanScore += 1;
+                    computerScore = 0; 
+                    break;
+            }
+            break;
+        case "scissors":
+            switch (computerChoice) {
+                case "scissors":
+                    result = "That's a tie!"
+                    humanScore = 0;
+                    computerScore = 0; 
+                    break;
+                case "rock":
+                    result = "Computer wins! :("
+                    humanScore = 0;
+                    computerScore += 1; 
+                    break;
+                case "paper":
+                    result = "Human wins! Yay! :)"
+                    humanScore += 1;
+                    computerScore = 0; 
+                    break;
+            }
+            break;
+        case undefined:
+            alert ("PLEASE ENTER THE CORRECT WORD! ONCE AGAIN")
+            break;
+    }
+//Show in console the result
+console.log (humanChoice, computerChoice, result, humanScore, computerScore);
+}
+//Call the Play function !
+const humanSelection = getHumanChoice();
+const computerSelection = getComputerChoice ();
+console.log(playRound (humanSelection, computerSelection));
