@@ -120,4 +120,6 @@ function playGame(n) {
     }
 }
 // Call the function to plan the game n number of times.
-playGame(5);
+// Declare n, to ask the human how many times to play
+let n = prompt ("how many times do you want to play?", 5);
+playGame(n);
