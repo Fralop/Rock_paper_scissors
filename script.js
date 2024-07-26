@@ -20,3 +20,16 @@ function getComputerChoice () {
 // Call the function
 // Test in the console
 console.log(getComputerChoice());
+// Create a function to capture user input
+function getHumanChoice () {
+    let humanText = prompt ("What is your choice? Rock, Paper or Scissors? Type only one !", "Make your choice here!")
+    // Accept only Rock, Paper or Scissor as an input
+    if (humanText.toLowerCase () !== "rock" && humanText.toLowerCase () !== "paper" && humanText.toLowerCase () !== "scissors") {
+        alert ("You can only enter Rock, Paper or Scissors. Please try again!");
+        humanText = undefined;
+    }
+// Return the selections
+    return humanText;
+}
+// Call the function in the console
+console.log(getHumanChoice ());
