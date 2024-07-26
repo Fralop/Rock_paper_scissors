@@ -106,5 +106,12 @@ function playGame(n) {
         const computerSelection = getComputerChoice ();
         playRound(humanSelection, computerSelection);
     }
+    if (humanScore > computerScore) {
+        alert (`Human has won ${humanScore} vs ${computerScore}! Yay! :)`);
+    } else if (humanScore < computerScore) {
+        alert (`Computer has won ${computerScore} vs ${humanScore}! Booo! :()`);
+    } else {
+        alert (`It's a tie at ${computerScore}. Not bad, human !`);
+    }
 }
 playGame(5);
