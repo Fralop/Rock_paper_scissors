@@ -40,18 +40,18 @@ function playRound (humanChoice, computerChoice) {
             switch (computerChoice) {
                 case "rock":
                     result = "That's a tie!"
-                    humanScore = 0;
-                    computerScore = 0; 
+                    //humanScore = 0;
+                    //computerScore = 0; 
                     break;
                 case "paper":
                     result = "Computer wins! :("
-                    humanScore = 0;
+                    //humanScore = 0;
                     computerScore += 1; 
                     break;
                 case "scissors":
                     result = "Human wins! Yay! :)"
                     humanScore += 1;
-                    computerScore = 0; 
+                    //computerScore = 0; 
                     break;
             }
             break;
@@ -59,18 +59,18 @@ function playRound (humanChoice, computerChoice) {
             switch (computerChoice) {
                 case "paper":
                     result = "That's a tie!"
-                    humanScore = 0;
-                    computerScore = 0; 
+                    //humanScore = 0;
+                    //computerScore = 0; 
                     break;
                 case "scissors":
                     result = "Computer wins! :("
-                    humanScore = 0;
+                    //humanScore = 0;
                     computerScore += 1; 
                     break;
                 case "rock":
                     result = "Human wins! Yay! :)"
                     humanScore += 1;
-                    computerScore = 0; 
+                    //computerScore = 0; 
                     break;
             }
             break;
@@ -78,18 +78,18 @@ function playRound (humanChoice, computerChoice) {
             switch (computerChoice) {
                 case "scissors":
                     result = "That's a tie!"
-                    humanScore = 0;
-                    computerScore = 0; 
+                    //humanScore = 0;
+                    //computerScore = 0; 
                     break;
                 case "rock":
                     result = "Computer wins! :("
-                    humanScore = 0;
+                    //humanScore = 0;
                     computerScore += 1; 
                     break;
                 case "paper":
                     result = "Human wins! Yay! :)"
                     humanScore += 1;
-                    computerScore = 0; 
+                    //computerScore = 0; 
                     break;
             }
             break;
@@ -97,7 +97,14 @@ function playRound (humanChoice, computerChoice) {
 //Show in console the result
 console.log (humanChoice, computerChoice, result, humanScore, computerScore);
 }
-//Call the Play function !
-const humanSelection = getHumanChoice();
-const computerSelection = getComputerChoice ();
-console.log(playRound (humanSelection, computerSelection));
+//Call the round function !
+//console.log(playRound (humanSelection, computerSelection));
+// Call the game function with n rounds.
+function playGame(n) {
+    for (let i=0; i<n; i++) {
+        const humanSelection = getHumanChoice();
+        const computerSelection = getComputerChoice ();
+        playRound(humanSelection, computerSelection);
+    }
+}
+playGame(5);
