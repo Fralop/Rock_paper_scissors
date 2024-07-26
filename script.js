@@ -93,9 +93,6 @@ function playRound (humanChoice, computerChoice) {
                     break;
             }
             break;
-        case undefined:
-            alert ("PLEASE ENTER THE CORRECT WORD! ONCE AGAIN")
-            break;
     }
 //Show in console the result
 console.log (humanChoice, computerChoice, result, humanScore, computerScore);
