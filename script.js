@@ -101,8 +101,12 @@ console.log (humanChoice, computerChoice, result, humanScore, computerScore);
 //console.log(playRound (humanSelection, computerSelection));
 // Call the game function with n rounds.
 function playGame(n) {
-    for (let i=0; i<n; i++) {
+    for (let i=0; i<n;) {
         const humanSelection = getHumanChoice();
+        //Added a condition to increment counter only if human enters word correctly!
+        if (humanSelection !== undefined) {
+            i++;
+        } 
         const computerSelection = getComputerChoice ();
         playRound(humanSelection, computerSelection);
     }
