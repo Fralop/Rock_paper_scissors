@@ -123,3 +123,22 @@ console.log (humanChoice, computerChoice, result, humanScore, computerScore);
 // Declare n, to ask the human how many times to play
 //let n = prompt ("how many times do you want to play?", 5);
 //playGame(n);
+
+const btnPa = document.querySelectorAll("#Pa");
+const btnSc = document.querySelectorAll("#Sc");
+const btnRo = document.querySelectorAll("#Ro");
+
+btnPa.addEventListener("click", () => {
+    humanSelection = "paper";
+    playRound(humanSelection, computerSelection);
+});
+
+btnSc.addEventListener("click", () => {
+    humanSelection = "scissors";
+    playRound(humanSelection, computerSelection);
+});
+
+btnRo.addEventListener("click", () => {
+    humanSelection = "rock";
+    playRound(humanSelection, computerSelection);
+});
