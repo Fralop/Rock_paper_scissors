@@ -100,26 +100,26 @@ console.log (humanChoice, computerChoice, result, humanScore, computerScore);
 //Call the round function !
 //console.log(playRound (humanSelection, computerSelection));
 // Call the game function with n rounds.
-function playGame(n) {
-    for (let i=0; i<n;) {
-        const humanSelection = getHumanChoice();
-        //Added a condition to increment counter only if human enters word correctly!
-        if (humanSelection !== undefined) {
-            i++;
-        } 
-        const computerSelection = getComputerChoice ();
-        playRound(humanSelection, computerSelection);
-    }
-    // Adds the conditional to place an alert and say who won
-    if (humanScore > computerScore) {
-        alert (`Human has won ${humanScore} vs ${computerScore}! Yay! :)`);
-    } else if (humanScore < computerScore) {
-        alert (`Computer has won ${computerScore} vs ${humanScore}! Booo! :(`);
-    } else {
-        alert (`It's a tie at ${computerScore}. Not bad, human !`);
-    }
-}
+//function playGame(n) {
+//    for (let i=0; i<n;) {
+//        const humanSelection = getHumanChoice();
+//        //Added a condition to increment counter only if human enters word correctly!
+//        if (humanSelection !== undefined) {
+//            i++;
+//        } 
+//        const computerSelection = getComputerChoice ();
+//        playRound(humanSelection, computerSelection);
+//    }
+//    // Adds the conditional to place an alert and say who won
+//    if (humanScore > computerScore) {
+//        alert (`Human has won ${humanScore} vs ${computerScore}! Yay! :)`);
+//    } else if (humanScore < computerScore) {
+//        alert (`Computer has won ${computerScore} vs ${humanScore}! Booo! :(`);
+//    } else {
+//        alert (`It's a tie at ${computerScore}. Not bad, human !`);
+//    }
+//}
 // Call the function to plan the game n number of times.
 // Declare n, to ask the human how many times to play
-let n = prompt ("how many times do you want to play?", 5);
-playGame(n);
+//let n = prompt ("how many times do you want to play?", 5);
+//playGame(n);
