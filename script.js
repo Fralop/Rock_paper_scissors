@@ -124,21 +124,25 @@ console.log (humanChoice, computerChoice, result, humanScore, computerScore);
 //let n = prompt ("how many times do you want to play?", 5);
 //playGame(n);
 
+//Individual Event listeners per button
 const btnPa = document.querySelector("#Pa");
 const btnSc = document.querySelector("#Sc");
 const btnRo = document.querySelector("#Ro");
 
-btnPa.addEventListener("click", () => {
-    humanSelection = "paper";
+btnPa.addEventListener("click", (e) => {
+    humanSelection = e.target.textContent;
+    computerSelection = getComputerChoice ();
     playRound(humanSelection, computerSelection);
 });
 
 btnSc.addEventListener("click", () => {
     humanSelection = "scissors";
+    computerSelection = getComputerChoice ();
     playRound(humanSelection, computerSelection);
 });
 
 btnRo.addEventListener("click", () => {
-    humanSelection = "rock";
+    humanSelection = "paper";
+    computerSelection = getComputerChoice ();
     playRound(humanSelection, computerSelection);
 });
