@@ -18,16 +18,16 @@ function getComputerChoice () {
     return computerChoice;
 }
 // Create a function to capture user input
-function getHumanChoice () {
-    let humanText = prompt ("What is your choice? Rock, Paper or Scissors? Type only one !", "Make your choice here!").toLowerCase ();
-    // Accept only Rock, Paper or Scissor as an input
-    if (humanText !== "rock" && humanText !== "paper" && humanText !== "scissors") {
-        alert ("You can only enter Rock, Paper or Scissors. Please try again!");
-        humanText = undefined;
-    }
-    // Return the selections
-    return humanText;
-}
+//function getHumanChoice () {
+//    let humanText = prompt ("What is your choice? Rock, Paper or Scissors? Type only one !", "Make your choice here!").toLowerCase ();
+//    // Accept only Rock, Paper or Scissor as an input
+//    if (humanText !== "rock" && humanText !== "paper" && humanText !== "scissors") {
+//        alert ("You can only enter Rock, Paper or Scissors. Please try again!");
+//        humanText = undefined;
+//    }
+//    // Return the selections
+//    return humanText;
+//}
 // Players score declaration
 let humanScore = 0;
 let computerScore = 0;
@@ -44,12 +44,12 @@ function playRound (humanChoice, computerChoice) {
                     //computerScore = 0; 
                     break;
                 case "paper":
-                    result = "Computer wins! :("
+                    result = "Computer wins! 🤦‍♂️"
                     //humanScore = 0;
                     computerScore += 1; 
                     break;
                 case "scissors":
-                    result = "Human wins! Yay! :)"
+                    result = "Human wins! Yay! 😊"
                     humanScore += 1;
                     //computerScore = 0; 
                     break;
@@ -63,12 +63,12 @@ function playRound (humanChoice, computerChoice) {
                     //computerScore = 0; 
                     break;
                 case "scissors":
-                    result = "Computer wins! :("
+                    result = "Computer wins! 🤦‍♂️"
                     //humanScore = 0;
                     computerScore += 1; 
                     break;
                 case "rock":
-                    result = "Human wins! Yay! :)"
+                    result = "Human wins! Yay! 😊"
                     humanScore += 1;
                     //computerScore = 0; 
                     break;
@@ -82,20 +82,20 @@ function playRound (humanChoice, computerChoice) {
                     //computerScore = 0; 
                     break;
                 case "rock":
-                    result = "Computer wins! :("
+                    result = "Computer wins! 🤦‍♂️"
                     //humanScore = 0;
                     computerScore += 1; 
                     break;
                 case "paper":
-                    result = "Human wins! Yay! :)"
+                    result = "Human wins! Yay! 😊"
                     humanScore += 1;
                     //computerScore = 0; 
                     break;
             }
             break;
     }
-//Show in console the result
-console.log (humanChoice, computerChoice, result, humanScore, computerScore);
+//Show results in an array
+return [i, humanChoice, computerChoice, result, humanScore, computerScore]; 
 }
 //Call the round function !
 //console.log(playRound (humanSelection, computerSelection));
@@ -147,14 +147,38 @@ console.log (humanChoice, computerChoice, result, humanScore, computerScore);
 //    playRound(humanSelection, computerSelection);
 //});
 
+let i=0;
 const btns = document.querySelectorAll("button");
-
 btns.forEach((btn) => {
-    btn.addEventListener("click", play);
+    btn.addEventListener("click", playGame);
 });
 
-function play (e) {
+function playGame (e) {
+    i++;
+    const body = document.querySelector("body");
+    const div = document.createElement("div");
+    const tittle = document.createElement("h1");
+    if (i <=5) {
     humanSelection = e.target.textContent;
     computerSelection = getComputerChoice ();
-    playRound(humanSelection, computerSelection);
+    roundResults = playRound(humanSelection, computerSelection);
+    const para = document.createElement("p");
+    para.textContent = 
+    `In match ${roundResults[0]}, you selected ${roundResults[1]} and the computer selected ${roundResults[2]}: ${roundResults[3]}
+    Current score is Human ${roundResults[4]} points and Computer ${roundResults[5]} points`;
+    div.appendChild(para);       
+    } else {
+        if (humanScore > computerScore) {
+            tittle.textContent = `You have played 5 times ... Human has won ${humanScore} vs ${computerScore}! Yay! 🎉🎉`;
+            } else if (humanScore < computerScore) {
+                tittle.textContent = `You have played 5 times ... Computer has won ${computerScore} vs ${humanScore}! Sad! 😢`;
+            } else {
+                tittle.textContent = `You have played 5 times ... It's a tie at ${computerScore}. Not bad, human! 💪`;
+            }
+        div.appendChild(tittle);
+        btns.forEach((btn) => {
+            btn.removeEventListener("click", playGame);
+        });
+    }
+    body.appendChild(div);
 };
