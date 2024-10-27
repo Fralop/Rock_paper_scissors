@@ -125,24 +125,36 @@ console.log (humanChoice, computerChoice, result, humanScore, computerScore);
 //playGame(n);
 
 //Individual Event listeners per button
-const btnPa = document.querySelector("#Pa");
-const btnSc = document.querySelector("#Sc");
-const btnRo = document.querySelector("#Ro");
+//const btnPa = document.querySelector("#Pa");
+//const btnSc = document.querySelector("#Sc");
+//const btnRo = document.querySelector("#Ro");
+//
+//btnPa.addEventListener("click", (e) => {
+//    humanSelection = e.target.textContent;
+//    computerSelection = getComputerChoice ();
+//    playRound(humanSelection, computerSelection);
+//});
+//
+//btnSc.addEventListener("click", () => {
+//    humanSelection = "scissors";
+//    computerSelection = getComputerChoice ();
+//    playRound(humanSelection, computerSelection);
+//});
+//
+//btnRo.addEventListener("click", () => {
+//    humanSelection = "paper";
+//    computerSelection = getComputerChoice ();
+//    playRound(humanSelection, computerSelection);
+//});
 
-btnPa.addEventListener("click", (e) => {
+const btns = document.querySelectorAll("button");
+
+btns.forEach((btn) => {
+    btn.addEventListener("click", play);
+});
+
+function play (e) {
     humanSelection = e.target.textContent;
     computerSelection = getComputerChoice ();
     playRound(humanSelection, computerSelection);
-});
-
-btnSc.addEventListener("click", () => {
-    humanSelection = "scissors";
-    computerSelection = getComputerChoice ();
-    playRound(humanSelection, computerSelection);
-});
-
-btnRo.addEventListener("click", () => {
-    humanSelection = "paper";
-    computerSelection = getComputerChoice ();
-    playRound(humanSelection, computerSelection);
-});
+};
