@@ -124,9 +124,9 @@ console.log (humanChoice, computerChoice, result, humanScore, computerScore);
 //let n = prompt ("how many times do you want to play?", 5);
 //playGame(n);
 
-const btnPa = document.querySelectorAll("#Pa");
-const btnSc = document.querySelectorAll("#Sc");
-const btnRo = document.querySelectorAll("#Ro");
+const btnPa = document.querySelector("#Pa");
+const btnSc = document.querySelector("#Sc");
+const btnRo = document.querySelector("#Ro");
 
 btnPa.addEventListener("click", () => {
     humanSelection = "paper";
